@@ -12,10 +12,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    private let authLog = Logger(
-        subsystem: "com.charleshs.LoggerDemo",
-        category: "Authentication"
-    )
+    private let authLog = Logger(subsystem: "com.charleshs.LoggerDemo", category: "Authentication")
 
     @IBOutlet weak private var usernameField: UITextField!
     @IBOutlet weak private var passwordField: UITextField!
@@ -23,6 +20,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let service = AccountService(userID: UUID().uuidString)
+
+        service.fetchAccount()
     }
 
     override func viewDidAppear(_ animated: Bool) {
